@@ -51,6 +51,15 @@ def texify_table(precision, cols, *args):
         table += "\n"
     return table
 
+def print_vals(vals, errs, comm = "Wert", count = True):
+    """takes values and errors and returns values to be put out with customized comment
+    set count to false if you dont wish to enumerate your values"""
+    for i in range(len(vals)):
+        if count:
+            print(comm, i + 1,":", vals[i], "+/-", errs[i])
+        else:
+            print(comm, ":", vals[i], "+/-", errs[i])
+
 def get_stats(vals, precision=3):
     """ return median and standard derrivative:
     syntax: get_stats(vals, precision=3)
